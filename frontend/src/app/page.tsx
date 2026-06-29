@@ -186,9 +186,11 @@ function DashboardShell() {
         <GlassCard className="w-full max-w-md p-8 text-center space-y-6 border border-jarvis-blue/20 bg-jarvis-bg/85 shadow-[0_0_40px_rgba(0,240,255,0.1)]" hoverEffect={false}>
           {/* Logo center */}
           <div className="flex flex-col items-center">
-            <div className="w-14 h-14 rounded-full border-2 border-jarvis-blue flex items-center justify-center text-jarvis-blue shadow-[0_0_15px_rgba(0,240,255,0.3)] animate-pulse">
-              <Terminal className="w-6 h-6" />
-            </div>
+            <img 
+              src="/logo.jpg" 
+              alt="JARVIS Logo" 
+              className="w-16 h-16 rounded-2xl border border-jarvis-blue/30 shadow-[0_0_15px_rgba(0,240,255,0.25)] object-cover mb-2"
+            />
             <h1 className="mt-4 font-hud text-2xl font-black tracking-wider text-white glow-text-blue">
               JARVIS AI
             </h1>

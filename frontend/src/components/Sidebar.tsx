@@ -57,10 +57,12 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
         {/* Title / Logo */}
         <div className="flex items-center gap-3 px-3 py-4 mb-6 border-b border-jarvis-blue/10">
           <div className="relative">
-            <div className="w-8 h-8 rounded-full border-2 border-jarvis-blue flex items-center justify-center animate-pulse shadow-[0_0_10px_rgba(0,240,255,0.4)]">
-              <Terminal className="w-4 h-4 text-jarvis-blue" />
-            </div>
-            <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border border-jarvis-bg animate-ping" />
+            <img 
+              src="/logo.jpg" 
+              alt="JARVIS Logo" 
+              className="w-9 h-9 rounded-lg border border-jarvis-blue/20 shadow-[0_0_8px_rgba(0,240,255,0.2)] object-cover"
+            />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full border border-jarvis-bg animate-pulse" />
           </div>
           <div>
             <h1 className="font-hud text-lg font-bold tracking-wider text-jarvis-blue glow-text-blue">
