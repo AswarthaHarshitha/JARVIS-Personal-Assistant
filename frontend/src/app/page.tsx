@@ -36,6 +36,22 @@ function DashboardShell() {
   // LTM Buzzer Alert states
   const [ltmToast, setLtmToast] = useState<{ id: string; message: string } | null>(null);
 
+  // Read token from query parameters (cross-origin callback support)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const urlToken = params.get('token');
+      if (urlToken) {
+        localStorage.setItem('jarvis_token', urlToken);
+        // Clean the token from the browser address bar
+        const newUrl = window.location.pathname;
+        window.history.replaceState(null, '', newUrl);
+        // Refresh page to trigger profile load
+        window.location.reload();
+      }
+    }
+  }, []);
+
   // Monitor LTM alerts in activity logs
   useEffect(() => {
     if (!isLoggedIn) return;

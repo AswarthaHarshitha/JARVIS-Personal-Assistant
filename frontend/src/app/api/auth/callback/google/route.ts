@@ -29,20 +29,12 @@ export async function GET(request: NextRequest) {
 
     const data = await res.json();
     
-    // Create Response to redirect back to home page
-    const response = NextResponse.redirect(new URL('/', request.url));
+    // Redirect to home page with token as query param to store in localStorage (cross-origin cookie bypass)
+    const redirectUrl = new URL('/', request.url);
+    redirectUrl.searchParams.set('token', data.token);
     
-    // Set session cookie in response (matches authMiddleware parser)
-    response.cookies.set('token', data.token, {
-      httpOnly: false, // Set to false so client JS context can read it or use for header fallback, but standard cookies apply
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 7 * 24 * 60 * 60 // 7 days
-    });
-
-    console.log('OAuth Callback: Successfully established session cookie. Redirecting.');
-    return response;
+    console.log('OAuth Callback: Redirecting with token query parameter.');
+    return NextResponse.redirect(redirectUrl);
 
   } catch (err) {
     console.error('OAuth Callback: Error exchanging coordinates:', err);
