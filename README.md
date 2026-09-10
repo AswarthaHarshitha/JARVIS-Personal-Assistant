@@ -2,6 +2,8 @@
 
 JARVIS AI is a production-ready personal AI assistant designed to manage your Google Workspace (Gmail, Calendar, Sheets) securely. Featuring a futuristic, glassmorphic Stark-inspired user interface with rich animations and a highly optimized modular Express backend.
 
+🌐 Live Application: https://harshitha-jarvis-assistant.netlify.app/
+
 ---
 
 ## 🚀 System Architecture Overview
